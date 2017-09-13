@@ -59,6 +59,9 @@ def build_tree(dm):
 
 	i,j = find_closest_pair(distances, trees)
 	ti,tj = Trees[i], Trees[j]
+
+	
+
 	print(t1.label)
 	print(t1.label)
 	print(D[t1.label])
