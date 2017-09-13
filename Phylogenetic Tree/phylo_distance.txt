@@ -1,0 +1,7 @@
+Turtle
+Man 19
+Tuna 27 31
+Chicken 8 18 26
+Moth 33 36 41 31
+Monkey 18 1 32 17 35
+Dog 13 13 29 14 28 12

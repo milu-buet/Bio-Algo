@@ -60,7 +60,10 @@ for i in range(5,100):
 	x = random_string(i)
 	y = random_string(i)
 	start = time.time()
-	print(i, edit_distance(x,y))
-	print(i, edit_distance_ita(x,y))
+	print(i)
+	u =  edit_distance(x,y)
+	print('\t', u, time.time() - start)
+	v = edit_distance_ita(x,y)
+	print('\t', v, time.time() - start)
 
 
