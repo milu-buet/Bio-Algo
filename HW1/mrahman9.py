@@ -15,8 +15,8 @@ def random_string(n):
 	return ''.join(out)
 #----------------------------------------------------------------
 
-# reading blosum matrix
-M = get_matrix('blosum.txt')
+# reading matrix
+M = get_matrix('matrix.txt')
 # for k,v in M.items():
 # 	print(k, M[k])
 
@@ -60,6 +60,12 @@ def global_alignment_ita(x,y):
 			table[i,j] = max(a,b,c)
 	return table[len(x)-1, len(y)-1]
 #-----------------------------------------------
+
+# x = 'QWHMBRXQYXVRNPVDSCSEAWVVZPQWHRIWXVINSFPEI'
+# y = 'DXCBZYPVDSCSEAW'
+# v = global_alignment_ita(x,y)
+# print(v)
+
 
 Table = {}
 for i in range(500,1000, 100):

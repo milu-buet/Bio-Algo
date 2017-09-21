@@ -23,6 +23,6 @@ def get_matrix(fn):
 	return mat
 
 if __name__ == '__main__':
-	M = get_matrix('data/blosum50.txt')
+	M = get_matrix('matrix.txt')
 	for k,v in M.items():
 		print(k, M[k])
