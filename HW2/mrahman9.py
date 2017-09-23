@@ -8,10 +8,8 @@
 
 from Tree import *
 from Bio import Phylo
-import random
 
-#-------------------------------------------------------
-#reads gene data files
+#Question_1-------------------------------------------------------
 #input: data file location
 #output: A dictionary whose keys are gene names and values are DNA sequences
 def getGeneDataset(data_file):
@@ -48,7 +46,7 @@ def edit_distance_ita(x,y):
 	return table[(len(x)-1,len(y)-1)]
 
 
-#---------------------------------------------
+#Question_2---------------------------------------------
 #input: gene dictionary produced by getGeneDataset
 #output: distance matrix D. Edit distance of each pair of genes
 def getEditDistances(gene_dict):
@@ -66,8 +64,6 @@ def build_phylogenetic_tree(data_file):
 	gene_dict, species = getGeneDataset(data_file)
 	D = getEditDistances(gene_dict)
 	tree_string = build_tree(species, D)
-	#print('#########')
-	#print(tree_string)
 	return tree_string
 #---------------------------------------------
 
@@ -91,31 +87,30 @@ def draw_tree_image(tree_string):
 	tree = create_phylo_tree(tree_string)
 	Phylo.draw(tree)
 
+#Question_3 --------------------------------------------
+#input: gene data file
+#output: drawing phylogenetic tree in ascii
+def phylogenetic_tree_ascii(data_file):
+	tree_string = build_phylogenetic_tree(data_file)
+	draw_tree_ascii(tree_string)
 
 
-
+#Question_4 --------------------------------------------
+#input: gene data file
+#output: drawing phylogenetic tree in an image
+def phylogenetic_tree_image(data_file):
+	tree_string = build_phylogenetic_tree(data_file)
+	draw_tree_image(tree_string)
 
 
 
 #-------------------------------------------------------
 #Three gene dataset
-gene_data_file1 = 'a2_dataset/ds1.fasta'
-gene_data_file2 = 'a2_dataset/ds2.fasta'
-gene_data_file3 = 'a2_dataset/ds3.fasta'
+gene_data_files = ['a2_dataset/ds1.fasta','a2_dataset/ds2.fasta','a2_dataset/ds3.fasta']
+
 #-------------------------------------------------------
+for data_file in gene_data_files:
+	phylogenetic_tree_ascii(data_file)
 
-data_file = gene_data_file1
-tree_string = build_phylogenetic_tree(data_file)
-draw_tree_ascii(tree_string)
-draw_tree_image(tree_string)
-
-data_file = gene_data_file2
-tree_string = build_phylogenetic_tree(data_file)
-draw_tree_ascii(tree_string)
-draw_tree_image(tree_string)
-
-
-data_file = gene_data_file3
-tree_string = build_phylogenetic_tree(data_file)
-draw_tree_ascii(tree_string)
-draw_tree_image(tree_string)
+for data_file in gene_data_files:
+	phylogenetic_tree_image(data_file)
