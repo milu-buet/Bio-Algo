@@ -19,7 +19,7 @@ def getGeneDataset(data_file):
 
 	for i in range(len(lines)-1):
 		if lines[i][0] == '>':
-			species_name = lines[i].split('|')[1].strip()
+			species_name = '-'.join(lines[i].split('|')[1].strip().split(' '))
 			gene_dataset[species_name] = lines[i+1].strip()
 			species.append(species_name)
 
