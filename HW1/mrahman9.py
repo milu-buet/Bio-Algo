@@ -6,7 +6,7 @@
 # COMP 8295 - Assignement 1
 #
 import random
-from blosum_reader import *
+from matrix_reader import *
 import time
 
 #----------------------------------------------------------------
@@ -35,8 +35,8 @@ def global_alignment(x,y):
 		return Table[(x,y)] 
 
 	a = M[x[-1],y[-1]] + global_alignment(x[0:-1], y[0:-1])
-	b = (-9) + global_alignment(x, y[0:-1])
-	c = (-9) + global_alignment(x[0:-1], y)
+	b = M['*',y[-1]]  + global_alignment(x, y[0:-1])
+	c = M[x[-1],'*'] + global_alignment(x[0:-1], y)
 	Table[(x,y)] = max(a,b,c)
 	return Table[(x,y)]
 #----------------------------------------------
